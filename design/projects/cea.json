@@ -1,0 +1,33 @@
+{
+  "name": "cea",
+  "handle": "hesselb20-ctrl / cea",
+  "domain": "Compiler engineering",
+  "status": "Prototype v0.1.0 · partly verified",
+  "mission": "Makes coding agents prove compiler claims.",
+  "missionLines": ["Makes coding agents prove", "compiler claims."],
+  "motif": "ledger",
+  "facts": [
+    ["Interface", "MCP stdio · CLI · skill"],
+    ["Output", "One evidence record per call"],
+    ["Real miscompiles confirmed", "0"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow. Request: an agent over MCP stdio or a person on the cea CLI calls one of 20 tools from a single registry, and the input is checked against a strict schema that rejects flags which load code into the compiler. Run: the toolbox finds compilers and tools already installed on PATH and records their versions, each process is started from an argument array with no shell, a timeout and an output cap, and the real clang, gcc, opt, alive-tv, cvise, csmith or git does the work. Record: the result becomes an evidence record split into observed, inferred and unknown, it is appended to a JSONL ledger with raw output kept on disk, and the caller gets the record and its evidence id to cite later.",
+  "flow": [
+    { "lane": "Request", "nodes": [
+      ["Agent or person", "MCP over stdio: cea mcp", "or cea <tool> --json"],
+      ["Registry", "20 tools, one definition", "shared by server and CLI"],
+      ["Validate", "strict zod input schema", "code-loading flags refused"]
+    ]},
+    { "lane": "Run", "nodes": [
+      ["Toolbox", "19 providers looked up", "on PATH, with versions"],
+      ["Exec", "argv array, no shell", "timeout and output cap"],
+      ["Your compilers", "clang, gcc, opt, alive-tv,", "cvise, csmith, git"]
+    ]},
+    { "lane": "Record", "nodes": [
+      ["Evidence", "observed, inferred, unknown", "commands, versions, SHA-256"],
+      ["Ledger", "evidence.jsonl per session", "raw output kept as views"],
+      ["Back to caller", "one record, one evidence id", "cited by later calls"]
+    ]}
+  ]
+}

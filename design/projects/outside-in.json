@@ -1,0 +1,33 @@
+{
+  "name": "Outside-In",
+  "handle": "hesselb20-ctrl / outside-in",
+  "domain": "Company research",
+  "status": "Prototype · v0.1.0 · not on npm",
+  "mission": "Evidence-backed company profiles from public signals.",
+  "missionLines": ["Evidence-backed company profiles", "from public signals."],
+  "motif": "converge",
+  "facts": [
+    ["Input", "A company domain"],
+    ["Output", "report.md + report.json"],
+    ["Tested on", "Fictional demo"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow: a company domain goes to six collectors (tech, pricing, careers, changelog, DNS, reviews), and every request they make passes one polite HTTP gate that honours robots.txt and a per-host rate limit. Each observation becomes an evidence item with an id, a source URL and an excerpt. Findings are written by offline rules, or by Claude when a key is set, and code drops any finding without a valid evidence id and sets or caps its confidence from the evidence. The result is report.md for people and report.json for programs.",
+  "flow": [
+    { "lane": "Collect", "nodes": [
+      ["Domain", "one company domain", "optional App Store id"],
+      ["Six collectors", "tech, pricing, careers,", "changelog, DNS, reviews"],
+      ["Polite HTTP", "robots.txt, 1.5 s per host", "logins recorded, not bypassed"]
+    ]},
+    { "lane": "Synthesise", "nodes": [
+      ["Evidence", "id, source URL, excerpt", "e-mails and phones redacted"],
+      ["Findings", "offline rules by default", "Claude if a key is set"],
+      ["Citation check", "no valid id, no finding", "confidence from the evidence"]
+    ]},
+    { "lane": "Report", "nodes": [
+      ["Finding", "claim, evidence, confidence", "and what stays unknown"],
+      ["report.md", "findings, evidence table", "request log, scope statement"],
+      ["report.json", "the same, for programs", "--json prints it to stdout"]
+    ]}
+  ]
+}

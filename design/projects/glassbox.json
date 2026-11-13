@@ -1,0 +1,33 @@
+{
+  "name": "Glassbox",
+  "handle": "hesselb20-ctrl / glassbox",
+  "domain": "Mechanistic interpretability",
+  "status": "Research prototype · v0.1.0",
+  "mission": "An interpretability lab Claude Code drives over MCP.",
+  "missionLines": ["An interpretability lab", "Claude Code drives over MCP."],
+  "motif": "circuit",
+  "facts": [
+    ["Interface", "MCP server, 10 tools"],
+    ["Backends", "Full, 4-bit, GGUF, NDIF"],
+    ["Planted-circuit bench", "15/15, saturated"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow. The scientist: Claude Code runs the /investigate command, pre-registers each experiment with a quantitative prediction in a hash-chained notebook, then runs it and gets the prediction scored. The lab: an MCP server with ten tools calls lab primitives such as patching, ablation and probes, which run on one of four backends: local-full, local-4bit, local-gguf or ndif. The record: a recovered algorithm is checked on held-out inputs with agreement, causal and null-calibrated checks; it counts as verified only at full precision; a report is written whose claims must cite experiment ids.",
+  "flow": [
+    { "lane": "The scientist", "nodes": [
+      ["/investigate", "Claude Code slash command", "backend, model, behavior"],
+      ["Pre-register", "hypothesis + prediction", "hash-chained notebook"],
+      ["Run experiment", "14 primitives, one per call", "result scored vs prediction"]
+    ]},
+    { "lane": "The lab", "nodes": [
+      ["MCP server", "10 tools over stdio", "same Session as the CLI"],
+      ["Primitives", "patching, ablation, probes", "JSON + plot + provenance"],
+      ["Backends", "local-full, local-4bit", "local-gguf, ndif"]
+    ]},
+    { "lane": "The record", "nodes": [
+      ["Verify", "held-out inputs, predict()", "causal + null percentiles"],
+      ["Status", "verified: full precision only", "quantized: screening-pass"],
+      ["Report", "claims must cite E/V ids", "report.md + report.html"]
+    ]}
+  ]
+}

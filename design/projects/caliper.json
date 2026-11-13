@@ -1,0 +1,33 @@
+{
+  "name": "Caliper",
+  "handle": "hesselb20-ctrl / caliper",
+  "domain": "Photo to CAD",
+  "status": "Prototype · synthetic test only",
+  "mission": "Parametric CAD from photos and one measurement.",
+  "missionLines": ["Parametric CAD from photos", "and one known measurement."],
+  "motif": "dimension",
+  "facts": [
+    ["Input", "1-4 photos + one measurement"],
+    ["Output", "STEP, STL, editable params"],
+    ["Real photos tested", "0"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow. Input: one to four photos named top, side and front, plus one known measurement such as hole spacing 40 mm; OpenCV segments each face and the reference sets millimetres per pixel, chained to the other views. Describe: the offline classical describer builds a feature tree of plate, fillet, flange, holes and slots; when an API key is set, Claude can describe the part instead, with the pixel measurements as evidence; dimensions are snapped to a 0.5 mm grid. Build: the tree becomes CadQuery code with named parameters, the solid is exported as STEP and STL, and a print check reports thin walls and overhangs.",
+  "flow": [
+    { "lane": "Input", "nodes": [
+      ["Photos", "1-4 images, top, side, front", "view read from the file name"],
+      ["Reference", "one known measurement", "e.g. hole spacing 40mm"],
+      ["Measure", "OpenCV face segmentation", "mm per px, chained across views"]
+    ]},
+    { "lane": "Describe", "nodes": [
+      ["Classical", "plate, fillet, flange, holes", "slots; offline, no API key"],
+      ["Claude, optional", "vision, structured JSON", "pixel values passed as evidence"],
+      ["Snap", "0.5 mm grid, mirrored holes", "raw values kept in measured.json"]
+    ]},
+    { "lane": "Build and check", "nodes": [
+      ["CadQuery", "feature tree to model.py", "every size named in params.json"],
+      ["Export", "part.step and part.stl", "mesh kept for the print check"],
+      ["Print check", "min wall, overhang 6 ways", "report.md, preview.png"]
+    ]}
+  ]
+}

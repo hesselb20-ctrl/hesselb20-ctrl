@@ -1,0 +1,33 @@
+{
+  "name": "Backstory",
+  "handle": "hesselb20-ctrl / backstory",
+  "domain": "Code history",
+  "status": "Prototype · v0.1.0 · not on npm",
+  "mission": "Rebuilds the decisions behind code from its git history.",
+  "missionLines": ["Rebuilds the decisions behind code", "from its git history."],
+  "motif": "history",
+  "facts": [
+    ["Input", "Git history, PRs, comments"],
+    ["Output", "ADRs, timeline, MCP tool"],
+    ["Real repos scanned", "1 (chalk)"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow: read the history, where git log gives every commit with per-file line counts, comments in the current code that give a reason are traced to their commit with git blame, and both become signals such as dependency changes, reverts, refactors, config changes and rationale words. Find decisions, where linked signals are grouped into candidates, ranked by score, and PR and issue text is attached from GitHub within a request budget. Write the record, where a model writes one ADR per candidate (or an evidence-only record without a model), the result is saved as numbered markdown files, index.json and a timeline viewer, and the why command and MCP tool look records up without a model call.",
+  "flow": [
+    { "lane": "Read the history", "nodes": [
+      ["Git log", "every commit, oldest first", "per-file line counts, renames"],
+      ["Comments", "lines at HEAD that give a reason", "traced to a commit by blame"],
+      ["Signals", "dependency, revert, refactor", "config, rationale words"]
+    ]},
+    { "lane": "Find decisions", "nodes": [
+      ["Group", "revert with the commit it undoes", "one PR, a dependency rolled back"],
+      ["Rank", "score from signal weights", "strongest 25 kept by default"],
+      ["GitHub text", "PR and issue descriptions", "gh api or REST, 60 requests"]
+    ]},
+    { "lane": "Write the record", "nodes": [
+      ["Draft", "one model call per candidate", "or evidence only, no model"],
+      ["Decision log", "NNNN-title.md, index.json", "index.html timeline viewer"],
+      ["why + MCP", "file, folder or symbol lookup", "read-only, no model call"]
+    ]}
+  ]
+}

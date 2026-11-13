@@ -1,0 +1,33 @@
+{
+  "name": "tracekit",
+  "handle": "hesselb20-ctrl / tracekit",
+  "domain": "API tooling",
+  "status": "Prototype · one local demo API",
+  "mission": "HAR recording in. OpenAPI spec, SDK and MCP server out.",
+  "missionLines": ["HAR recording in.", "OpenAPI spec, SDK and MCP server out."],
+  "motif": "waterfall",
+  "facts": [
+    ["Input", "HAR file from DevTools"],
+    ["Output", "OpenAPI 3.1, TS SDK, MCP"],
+    ["Tested on", "One demo API"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow: a HAR file is parsed and only JSON and fetch calls are kept. Secrets are redacted first, then the busiest origin is chosen. In analysis, raw paths are clustered into templates, request and response samples are merged into JSON Schema, and auth plus call order are detected. The output is openapi.yaml with tracekit.json, a typed TypeScript SDK, and an MCP server with one tool per operation.",
+  "flow": [
+    { "lane": "Read the recording", "nodes": [
+      ["HAR file", "browser Network export", "fetch, XHR and JSON calls kept"],
+      ["Redact", "tokens, cookies, keys, emails", "stable placeholders, first"],
+      ["Pick origin", "busiest origin by default", "--origin to choose another"]
+    ]},
+    { "lane": "Analyse", "nodes": [
+      ["Cluster paths", "/todos/17 becomes /todos/{id}", "ids, uuids, dates, slugs"],
+      ["Infer schemas", "samples merged per endpoint", "into JSON Schema"],
+      ["Auth + order", "bearer, API key or cookie", "which call feeds which"]
+    ]},
+    { "lane": "Generate", "nodes": [
+      ["openapi.yaml", "OpenAPI 3.1 spec", "plus tracekit.json"],
+      ["sdk/", "typed TypeScript client", "keeps the issued token"],
+      ["mcp-server/", "one tool per operation", "stdio, token stays in process"]
+    ]}
+  ]
+}

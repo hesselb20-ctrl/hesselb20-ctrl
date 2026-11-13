@@ -1,0 +1,33 @@
+{
+  "name": "LiveSeal",
+  "handle": "hesselb20-ctrl / liveseal",
+  "domain": "Video call provenance",
+  "status": "Research preview · no real call yet",
+  "mission": "A signed seal in live video, checked by the receiver.",
+  "missionLines": ["A signed seal in live video,", "checked by the receiver."],
+  "motif": "sealgrid",
+  "facts": [
+    ["Statement", "Ed25519, ~125 B every 2 s"],
+    ["Proves", "Key, time, call, picture"],
+    ["Real calls tested", "0"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow. On the sender: the camera frame is reduced and the face located on the device; every 2 seconds a 32-byte digest of the last 2 seconds is signed with Ed25519; the statement is error-coded and embedded as small shifts in a 32 by 18 grid of cells on three colour planes. Through the call: any call app and codec carry the pixels; the receiver reads a video tile, a captured window or a recording. On the receiver: pilots and soft LDPC decoding recover the statement, the verifier checks key, signature, revocation, session, freshness, replay and content, and a badge turns green only after two valid statements in a row.",
+  "flow": [
+    { "lane": "On the sender", "nodes": [
+      ["Camera frame", "320x180 luma reduction", "face box from on-device detector"],
+      ["Digest + sign", "32-byte digest of the last 2 s", "Ed25519 statement, ~125 B"],
+      ["Embed", "32x18 cells on Y, Cb and Cr", "LDPC about 1/5, CRC, pilots"]
+    ]},
+    { "lane": "Through the call", "nodes": [
+      ["Any call app", "the seal travels in the pixels", "no server, no account"],
+      ["Video codec", "VP8, VP9, H.264, AV1", "simulated and browser loop-back"],
+      ["Received pixels", "video tile or window capture", "or a recorded file"]
+    ]},
+    { "lane": "On the receiver", "nodes": [
+      ["Decode", "pilots, differential pairs", "soft LDPC, then CRC"],
+      ["Check", "pinned key, signature, revoked", "session, fresh, replay, content"],
+      ["Badge", "green: 2 valid in a row", "amber unknown, red failed"]
+    ]}
+  ]
+}

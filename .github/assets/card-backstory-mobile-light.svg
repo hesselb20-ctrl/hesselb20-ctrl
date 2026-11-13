@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 104" width="420" height="104" role="img" aria-label="Backstory: Rebuilds the decisions behind code from its git history. Status: Prototype · v0.1.0 · not on npm">
+<style>.s{font-family:'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif}.m{font-family:ui-monospace,'SF Mono','Cascadia Mono','Segoe UI Mono',Menlo,Consolas,'Liberation Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}@keyframes sweep{0%{transform:translateX(0)}100%{transform:translateX(var(--d))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<text x="0" y="30" class="s" font-size="21" font-weight="600" fill="#111111">Backstory</text>
+<text x="0" y="52" class="s" font-size="13" fill="#5F5F5F">Rebuilds the decisions behind code</text><text x="0" y="69" class="s" font-size="13" fill="#5F5F5F">from its git history.</text>
+<circle cx="4" cy="87" r="2.6" fill="#000000" style="animation:pulse 5s ease-in-out infinite"/><text x="14" y="90.5" class="m" font-size="9" fill="#5F5F5F">Prototype · v0.1.0 · not on npm</text>
+<line x1="0" y1="103" x2="420" y2="103" stroke="#C8C8C8"/>
+<rect x="0" y="102" width="28" height="2" fill="#000000" style="--d:392px;animation:sweep 20s ease-in-out infinite alternate"/>
+</svg>

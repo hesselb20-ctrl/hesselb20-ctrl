@@ -1,0 +1,99 @@
+{
+  "name": "Collector",
+  "handle": "hesselb20-ctrl / quakescore-collector",
+  "domain": "QuakeScore · field sensing",
+  "status": "Prototype · simulated input only",
+  "mission": "Measures building vibration in a phone's browser.",
+  "missionLines": [
+    "Measures building vibration",
+    "in a phone's browser."
+  ],
+  "motif": "axes",
+  "facts": [
+    [
+      "Input",
+      "Browser motion sensor"
+    ],
+    [
+      "Output",
+      "One JSON session file"
+    ],
+    [
+      "Run on a real phone",
+      "Not yet"
+    ]
+  ],
+  "sections": [
+    "What it is",
+    "Why it exists",
+    "How it works",
+    "Capabilities",
+    "Quick start",
+    "Stack, status, roadmap",
+    "License"
+  ],
+  "flowAlt": "Data flow: in the browser, devicemotion readings (acceleration with gravity, about 60 a second) are timed for 10 seconds to fix the rate, next to a typed building name, floor and charging box. On the phone, they are resampled to a 100 or 200 Hz grid and FIR-decimated into three bands at 50, 12.5 and 3.125 Hz; a 120-second warm-up checks the phone is flat and levels it, seconds with movement are set aside, and 2048-point windows are averaged into spectra per band. For the user, the page builds one upload schema v1 JSON file of about 200 kB with no location, saves it by download or share sheet, sends nothing itself, and keeps a snapshot in local storage every 60 seconds.",
+  "flow": [
+    {
+      "lane": "In the browser",
+      "nodes": [
+        [
+          "Motion sensor",
+          "devicemotion, with gravity",
+          "about 60 readings a second"
+        ],
+        [
+          "Setup",
+          "building name, floor",
+          "charging box, iOS permission"
+        ],
+        [
+          "Rate probe",
+          "first 10 s set the rate",
+          "grid of 100 or 200 Hz"
+        ]
+      ]
+    },
+    {
+      "lane": "On the phone",
+      "nodes": [
+        [
+          "Resample + FIR",
+          "three bands: 50, 12.5,",
+          "3.125 Hz, linear phase"
+        ],
+        [
+          "Gate + level",
+          "120 s warm-up, flat check",
+          "moving seconds set aside"
+        ],
+        [
+          "Spectra",
+          "2048-point Hann windows",
+          "averaged per band"
+        ]
+      ]
+    },
+    {
+      "lane": "For the user",
+      "nodes": [
+        [
+          "Session file",
+          "upload schema v1 JSON",
+          "about 200 kB, no location"
+        ],
+        [
+          "Save or share",
+          "download or share sheet",
+          "the page sends nothing"
+        ],
+        [
+          "Snapshot",
+          "every 60 s in localStorage",
+          "save the last session again"
+        ]
+      ]
+    }
+  ],
+  "indexName": "QuakeScore Collector"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "shotlist",
+  "handle": "hesselb20-ctrl / shotlist",
+  "domain": "Video edit analysis",
+  "status": "Prototype · tested on one synthetic clip",
+  "mission": "Shot list and Remotion template from a short video.",
+  "missionLines": ["Shot list and Remotion template", "from a short video."],
+  "motif": "timeline",
+  "facts": [
+    ["Input", "Any video ffmpeg can read"],
+    ["Output", "JSON + Remotion project"],
+    ["Real videos tested", "0"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow. Measured locally with ffmpeg: ffprobe reads frame rate, frame count and size, ffmpeg's scene score finds the cuts, and onsets and a tempo are detected in the decoded audio. Reading the edit: pacing statistics, one frame from the middle of each shot for its average colour, and roles, labels and the hook from Claude, or guessed from shot position without credentials. Written out: a shotlist.json checked against the schema, exported as a Remotion project with one Sequence per shot and a slot to fill for each.",
+  "flow": [
+    { "lane": "Measured locally", "nodes": [
+      ["Probe", "ffprobe: fps, frames, size", "audio and video codecs"],
+      ["Cuts", "ffmpeg scene score above 0.3", "cuts under 6 frames apart dropped"],
+      ["Beats", "onsets in the decoded audio", "tempo by autocorrelation"]
+    ]},
+    { "lane": "Reading the edit", "nodes": [
+      ["Pacing", "shot lengths, cuts per minute", "share of cuts on an onset"],
+      ["Frames", "one frame from mid-shot", "average colour per shot"],
+      ["Structure", "Claude: role, label, hook", "no key: guessed by position"]
+    ]},
+    { "lane": "Written out", "nodes": [
+      ["shotlist.json", "checked against the schema", "JSON Schema 2020-12"],
+      ["Export", "a Remotion project", "one <Sequence> per shot"],
+      ["Slots", "fill src/slots.tsx", "same frames, your footage"]
+    ]}
+  ]
+}

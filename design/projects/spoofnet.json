@@ -1,0 +1,33 @@
+{
+  "name": "SpoofNet",
+  "handle": "hesselb20-ctrl / spoofnet",
+  "domain": "GNSS interference",
+  "status": "Research prototype · replay-tested",
+  "mission": "GNSS jamming and spoofing, mapped from phones.",
+  "missionLines": ["GNSS jamming and spoofing,", "mapped from phones."],
+  "motif": "cn0bars",
+  "facts": [
+    ["Input", "Android raw GNSS logs"],
+    ["Output", "Incidents + source estimate"],
+    ["Real interference seen", "1 jamming event"]
+  ],
+  "sections": ["What it is", "Why it exists", "How it works", "Capabilities", "Quick start", "Stack, status, roadmap", "License"],
+  "flowAlt": "Data flow: per phone, a raw GNSS log (C/N0, AGC, clock, pseudoranges) from GnssLogger or the simulator is turned into features against a per-signal baseline, and a fitted detector raises jamming, spoofing or meaconing events. Each event goes up as a type, score and coarse cell under a daily token, never a track. The server clusters events from three or more contributors into an incident and locates the source from C/N0 loss with an uncertainty ellipse. Publication rules decide what each audience sees; the API and the MapLibre map serve it, with areas without phones drawn as no data.",
+  "flow": [
+    { "lane": "Per phone", "nodes": [
+      ["Raw log", "C/N0, AGC, clock, pseudoranges", "GnssLogger text or simulator"],
+      ["Features", "per-signal C/N0 baseline", "AGC, clock, constellations"],
+      ["Detector", "fitted logistic score", "jam, spoof, meacon events"]
+    ]},
+    { "lane": "Upload and server", "nodes": [
+      ["Event", "type, score, coarse cell", "daily token, no track"],
+      ["Incident", "3+ contributors, near in time", "type by weighted vote"],
+      ["Locate", "C/N0 loss against distance", "source + 95% ellipse"]
+    ]},
+    { "lane": "Publication", "nodes": [
+      ["Rules", "public: coarse, k = 3, delayed", "source only for vetted users"],
+      ["API", "FastAPI, SQLite", "public, customer, vetted"],
+      ["Map", "MapLibre, hourly coverage", "no phones drawn as no data"]
+    ]}
+  ]
+}
