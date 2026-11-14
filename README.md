@@ -1,4 +1,4 @@
-# Hessel
+# 🐱
 
 Twelve prototypes in sensing, signals and agent tooling. Each README opens with a figure built from that project's own results, and says what is verified, what is simulated and what has not been run.
 
