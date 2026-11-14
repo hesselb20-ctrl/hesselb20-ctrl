@@ -1,0 +1,1649 @@
+{
+"source": "glassbox benchmarks/ioi: E0014_ablation.json, report/report.json, V0002_verify.json, null_calibration.json, notebook.jsonl",
+"change": [
+[
+0.014,
+0.075,
+0.004,
+0.008,
+0.045,
+0.045,
+0.058,
+0.014,
+0.012,
+-0.006,
+-0.004,
+-0.002
+],
+[
+0.026,
+0.009,
+0.002,
+0.005,
+-0.004,
+-0.029,
+0.01,
+0.017,
+-0.013,
+-0.006,
+-0.0,
+-0.003
+],
+[
+0.016,
+0.019,
+0.001,
+-0.001,
+0.046,
+0.006,
+-0.002,
+-0.008,
+0.02,
+0.045,
+0.004,
+-0.005
+],
+[
+-0.424,
+0.0,
+0.009,
+0.091,
+-0.066,
+0.024,
+0.004,
+0.094,
+-0.01,
+0.009,
+-0.057,
+0.031
+],
+[
+0.009,
+0.017,
+0.004,
+0.099,
+-0.027,
+0.008,
+-0.041,
+-0.228,
+0.009,
+0.019,
+-0.003,
+0.024
+],
+[
+0.017,
+-0.005,
+0.016,
+0.004,
+0.012,
+-1.025,
+-0.03,
+0.093,
+0.064,
+-0.131,
+0.168,
+-0.077
+],
+[
+-0.138,
+-0.01,
+-0.002,
+0.012,
+0.048,
+-0.004,
+0.035,
+0.042,
+0.019,
+-0.316,
+0.002,
+0.01
+],
+[
+0.007,
+-0.028,
+-0.003,
+-0.433,
+0.009,
+0.039,
+-0.01,
+0.007,
+0.058,
+-0.729,
+0.007,
+-0.003
+],
+[
+0.001,
+-0.0,
+0.042,
+-0.006,
+0.011,
+0.009,
+-1.161,
+0.006,
+0.028,
+-0.021,
+-1.05,
+0.023
+],
+[
+0.009,
+0.004,
+-0.01,
+-0.076,
+0.077,
+-0.051,
+0.396,
+-0.268,
+0.037,
+-0.472,
+0.002,
+0.01
+],
+[
+-0.428,
+-0.022,
+0.06,
+-0.039,
+0.001,
+-0.002,
+-0.137,
+1.433,
+-0.003,
+-0.026,
+-0.118,
+-0.002
+],
+[
+-0.02,
+0.081,
+0.255,
+-0.023,
+-0.005,
+0.0,
+0.077,
+-0.008,
+-0.011,
+0.007,
+0.766,
+-0.013
+]
+],
+"metric_clean_e14": 3.773854,
+"n_e14": 64,
+"seconds_e14": 3.4,
+"circuit_heads": [
+"3.0",
+"5.5",
+"6.9",
+"7.3",
+"7.9",
+"8.6",
+"8.10",
+"9.9",
+"9.6",
+"10.0",
+"10.7",
+"11.10"
+],
+"edges": [
+[
+"mlp0",
+"3.0"
+],
+[
+"3.0",
+"8.6"
+],
+[
+"5.5",
+"8.6"
+],
+[
+"6.9",
+"8.10"
+],
+[
+"support",
+"7.9"
+],
+[
+"5.5",
+"7.9"
+],
+[
+"3.0",
+"7.3"
+],
+[
+"8.6",
+"9.9"
+],
+[
+"8.10",
+"9.9"
+],
+[
+"7.9",
+"9.6"
+],
+[
+"7.3",
+"10.0"
+],
+[
+"9.9",
+"logits"
+],
+[
+"9.6",
+"logits"
+],
+[
+"10.0",
+"logits"
+],
+[
+"10.7",
+"logits"
+],
+[
+"11.10",
+"logits"
+]
+],
+"verify": {
+"agreement": 0.935,
+"circuit_alone": 0.994195,
+"circuit_ablated": -0.13015,
+"n_heldout": 200,
+"thresholds": {
+"agreement_min": 0.9,
+"circuit_alone_min": 0.7,
+"without_circuit_max": 0.5
+},
+"metric_clean": 3.944313,
+"metric_alone": 3.921418,
+"metric_ablated": -0.513351,
+"circuit_size": 30,
+"total_components": 156,
+"seed": 777
+},
+"nulls": [
+{
+"finding": "agreement",
+"effect": 0.935,
+"null_p95": 0.05025,
+"n_null": 60
+},
+{
+"finding": "necessity",
+"effect": 1.13015,
+"null_p95": 0.079878,
+"n_null": 66
+},
+{
+"finding": "sufficiency",
+"effect": 0.994195,
+"null_p95": 0.005504,
+"n_null": 60
+}
+],
+"notebook": [
+{
+"id": "N0001",
+"ts": "22:33:16",
+"kind": "decision",
+"refs": [],
+"status": "",
+"text": "Loaded gpt2 on local-full (full precision (local)).",
+"h": "be4f01036c99",
+"chained": false
+},
+{
+"id": "N0002",
+"ts": "22:33:22",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H1 (behavior exists): GPT-2 small prefers the indirect object (non-repeated name) over the subject (repeated name) on the ioi dataset. Counter-evidenc",
+"h": "5a81faa977fd",
+"chained": false
+},
+{
+"id": "N0003",
+"ts": "22:33:22",
+"kind": "experiment",
+"refs": [
+"E0001"
+],
+"status": "",
+"text": "dataset",
+"h": "ac5703bf37ce",
+"chained": false
+},
+{
+"id": "N0004",
+"ts": "22:33:27",
+"kind": "experiment",
+"refs": [
+"E0002"
+],
+"status": "",
+"text": "baseline",
+"h": "2c47af0343fd",
+"chained": false
+},
+{
+"id": "N0005",
+"ts": "22:33:35",
+"kind": "result",
+"refs": [
+"E0002"
+],
+"status": "",
+"text": "Baseline (local-full): clean logit diff IO-S = 3.77 +/- 1.45, accuracy 0.94 (n=64, seed 0). Corrupt (all three names replaced by unrelated names) logi",
+"h": "f6156ba2808c",
+"chained": false
+},
+{
+"id": "N0006",
+"ts": "22:33:36",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0002: accuracy 0.94, mean logit diff 3.77.",
+"h": "1f3cd615003e",
+"chained": false
+},
+{
+"id": "N0007",
+"ts": "22:33:37",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H2 (where, screen): The IO-vs-S decision is made by attention heads in the later half (layers ~7-11) at the END position, which move a name into the r",
+"h": "03384a2f0ca1",
+"chained": false
+},
+{
+"id": "N0008",
+"ts": "22:33:39",
+"kind": "experiment",
+"refs": [
+"E0003"
+],
+"status": "",
+"text": "attribution_patching",
+"h": "2628810c0521",
+"chained": false
+},
+{
+"id": "N0009",
+"ts": "22:33:53",
+"kind": "result",
+"refs": [
+"E0003"
+],
+"status": "",
+"text": "Attribution screen (local-full, first-order estimate): head attribution concentrated in layers 9-11: 9.9 (+0.90), 9.6 (+0.35), 10.0 (+0.24), 10.10 (+0",
+"h": "ffe0642a6deb",
+"chained": false
+},
+{
+"id": "N0010",
+"ts": "22:33:55",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H3 (information flow): Residual activation patching (clean->corrupt) will show the effect lives at S2 (pos 10) in early/mid layers and moves to END (p",
+"h": "4fa751b9c486",
+"chained": false
+},
+{
+"id": "N0011",
+"ts": "22:34:00",
+"kind": "experiment",
+"refs": [
+"E0004"
+],
+"status": "",
+"text": "activation_patching",
+"h": "e663fc1546db",
+"chained": false
+},
+{
+"id": "N0012",
+"ts": "22:34:25",
+"kind": "result",
+"refs": [
+"E0004"
+],
+"status": "",
+"text": "Residual patching (ABC corruption, local-full): END (pos 14) recovers +1.58 at resid_pre.10 and +1.36 at resid_pre.11, but only +0.08/+0.16 at layers ",
+"h": "c3f26c0548f3",
+"chained": false
+},
+{
+"id": "N0013",
+"ts": "22:34:27",
+"kind": "decision",
+"refs": [],
+"status": "",
+"text": "Switch to a cleaner contrast: hand-built 24 prompts (alternating ABB/BAB orders, single-token names) where the corrupt prompt is identical except S2 i",
+"h": "28eecf633670",
+"chained": false
+},
+{
+"id": "N0014",
+"ts": "22:34:29",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "E0004: END carries the effect from layer 10 (resid_pre.10), with attn layer 9 doing the moving; S2 role untestable with ABC corruption (negative, conf",
+"h": "3141af56f683",
+"chained": false
+},
+{
+"id": "N0015",
+"ts": "22:34:42",
+"kind": "experiment",
+"refs": [
+"E0005"
+],
+"status": "",
+"text": "activation_patching",
+"h": "5ff0e41647fb",
+"chained": false
+},
+{
+"id": "N0016",
+"ts": "22:34:48",
+"kind": "result",
+"refs": [
+"E0005"
+],
+"status": "",
+"text": "S2-swap residual patching (local-full, n=24; corrupt LD -4.70, clean +4.27): normalized recovery at S2 (pos 10) is ~1.0 for resid_pre 0-4, 0.96 at 5-6",
+"h": "2ac727f50276",
+"chained": false
+},
+{
+"id": "N0017",
+"ts": "22:34:50",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0005: S2 holds the information through layer 7 and END takes it over across layers 7-8 (END 0.32 at resid_pre.8, 0.91 at resid_pre.9).",
+"h": "f75519152e86",
+"chained": false
+},
+{
+"id": "N0018",
+"ts": "22:34:52",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H4 (two classes of heads): Head-level activation patching on the S2-swap data will show (a) a few heads in layers 7-8 with large positive recovery (th",
+"h": "0e22168b0aca",
+"chained": false
+},
+{
+"id": "N0019",
+"ts": "22:35:04",
+"kind": "experiment",
+"refs": [
+"E0006"
+],
+"status": "",
+"text": "activation_patching",
+"h": "5711d6fb1b39",
+"chained": false
+},
+{
+"id": "N0020",
+"ts": "22:35:13",
+"kind": "result",
+"refs": [
+"E0006"
+],
+"status": "",
+"text": "Head patching on S2-swap (local-full, normalized recovery, single head at all positions): positive 8.10 (.28), 8.6 (.27), 5.5 (.24), 9.9 (.23), 7.9 (.",
+"h": "aec81cd5b531",
+"chained": false
+},
+{
+"id": "N0021",
+"ts": "22:35:15",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "E0006: layers 7-8 heads (7.3, 7.9, 8.6, 8.10) and layer 9-10 heads (9.9, 10.0, 9.7) recover positively; 10.7/11.10 negative as predicted. Additionally",
+"h": "bd43356c2373",
+"chained": false
+},
+{
+"id": "N0022",
+"ts": "22:35:17",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H5 (attention at END): At the END query, heads 9.9, 10.0, 9.7, 9.6 (and negative 10.7, 11.10) attend mostly to the IO name token (copying it), while 7",
+"h": "1f1dff21a13f",
+"chained": false
+},
+{
+"id": "N0023",
+"ts": "22:35:24",
+"kind": "experiment",
+"refs": [
+"E0007"
+],
+"status": "",
+"text": "attention_patterns",
+"h": "75eefed556c1",
+"chained": false
+},
+{
+"id": "N0024",
+"ts": "22:35:35",
+"kind": "result",
+"refs": [
+"E0007"
+],
+"status": "",
+"text": "Attention from END (pos 14), ioi seed 0 (mixed IO-first/S-first orders, so pos 2/4 are IO in half the prompts and S1 in the other half): top keys 7.3 ",
+"h": "953a01fddac3",
+"chained": false
+},
+{
+"id": "N0025",
+"ts": "22:35:41",
+"kind": "experiment",
+"refs": [
+"E0008"
+],
+"status": "",
+"text": "All prompts IO-first: IO=pos 2, S1=pos 4, S2=pos 10, END=14. Tests H5.",
+"h": "83ca400ff39a",
+"chained": false
+},
+{
+"id": "N0026",
+"ts": "22:35:46",
+"kind": "result",
+"refs": [
+"E0008"
+],
+"status": "",
+"text": "Order-controlled attention from END (24 IO-first prompts: IO=2, S1=4, S2=10; local-full): 9.9 -> IO (0.82), 9.6 -> IO (0.65), 10.7 -> IO (0.87), 11.10",
+"h": "a3f145bd42ab",
+"chained": false
+},
+{
+"id": "N0027",
+"ts": "22:35:48",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0008: 9.9/9.6/10.7/11.10 attend END->IO; 7.9/8.6/8.10 attend END->S2 and 7.3 END->S2+1. Exception: 9.7 and 10.0 attend mostly BOS from END, so their ",
+"h": "1297dd931c70",
+"chained": false
+},
+{
+"id": "N0028",
+"ts": "22:35:50",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H6 (duplicate detection at S2): Early heads 3.0, 5.5, 6.9 (positive in E0006) at the S2 query attend back to the earlier occurrence of the same name, ",
+"h": "69074e553789",
+"chained": false
+},
+{
+"id": "N0029",
+"ts": "22:35:55",
+"kind": "experiment",
+"refs": [
+"E0009"
+],
+"status": "",
+"text": "Query = S2 (pos 10); IO=2, S1=4, S1+1=5. Tests H6.",
+"h": "6ea808087ee8",
+"chained": false
+},
+{
+"id": "N0030",
+"ts": "22:36:04",
+"kind": "result",
+"refs": [
+"E0009"
+],
+"status": "",
+"text": "Attention from S2 (pos 10; IO-first prompts, IO=2, S1=4, S1+1=5; local-full): 3.0 -> S1 (0.77); 0.1 -> S1 (0.54); 1.11 -> S1 (0.72); 0.5 -> S1 (0.57);",
+"h": "ee65a71d3261",
+"chained": false
+},
+{
+"id": "N0031",
+"ts": "22:36:05",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0009: 3.0 attends S2->S1 (0.77), 5.5 attends S2->S1+1 (0.85). Exception: 6.9 does not show this pattern (BOS), so its role in E0006 is unexplained.",
+"h": "fb5d4efcea46",
+"chained": false
+},
+{
+"id": "N0032",
+"ts": "22:36:07",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H7 (who writes the answer): Direct logit attribution along the IO-S direction at END: 9.9, 9.6 (and 10.0/10.10?) write positively; 10.7, 11.10 write n",
+"h": "51ec502d0497",
+"chained": false
+},
+{
+"id": "N0033",
+"ts": "22:36:08",
+"kind": "experiment",
+"refs": [
+"E0010"
+],
+"status": "",
+"text": "direct_logit_attribution",
+"h": "c2dec4d1aa8a",
+"chained": false
+},
+{
+"id": "N0034",
+"ts": "22:36:14",
+"kind": "result",
+"refs": [
+"E0010"
+],
+"status": "",
+"text": "DLA at END along IO-S (ioi seed 0, local-full; total heads 3.43 of 3.77): positive 9.9 (+3.01), 9.6 (+1.20), 10.0 (+0.74), 10.10 (+0.40), 10.6 (+0.25)",
+"h": "8d91f209e790",
+"chained": false
+},
+{
+"id": "N0035",
+"ts": "22:36:16",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0010: 9.9 (+3.0) and 9.6 (+1.2) dominate the direct write, 10.7 (-2.0) and 11.10 (-0.8) write against; 7.x/8.x direct writes are small (<=0.24). 10.0",
+"h": "59008b3ec027",
+"chained": false
+},
+{
+"id": "N0036",
+"ts": "22:36:18",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H8 (S2-signal -> name-mover queries): On the S2-swap data, path patching senders -> queries of {9.9, 9.6, 10.0} will be dominated by the layer 7-8 S2-",
+"h": "25c33706ad82",
+"chained": false
+},
+{
+"id": "N0037",
+"ts": "22:36:32",
+"kind": "experiment",
+"refs": [
+"E0011"
+],
+"status": "",
+"text": "path_patching",
+"h": "2fea16bdcf51",
+"chained": false
+},
+{
+"id": "N0038",
+"ts": "22:36:39",
+"kind": "result",
+"refs": [
+"E0011"
+],
+"status": "",
+"text": "Path patching senders -> queries of {9.9, 9.6, 10.0} on S2-swap (local-full, normalized): 8.6 (+0.156), 8.10 (+0.142), 7.9 (+0.085), 7.3 (+0.053); eve",
+"h": "b9cdf57cb251",
+"chained": false
+},
+{
+"id": "N0039",
+"ts": "22:36:40",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0011: the four predicted heads are the top-4 senders into name-mover queries, all positive; no other head exceeds 0.05.",
+"h": "0f317ae5038f",
+"chained": false
+},
+{
+"id": "N0040",
+"ts": "22:36:42",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H9 (duplicate signal -> S2 readers): Path patching senders -> values of {7.3, 7.9, 8.6, 8.10} (they read from S2/S2+1) on S2-swap data will be dominat",
+"h": "3fa664b9fe64",
+"chained": false
+},
+{
+"id": "N0041",
+"ts": "22:36:56",
+"kind": "experiment",
+"refs": [
+"E0012"
+],
+"status": "",
+"text": "path_patching",
+"h": "f4bbca37c854",
+"chained": false
+},
+{
+"id": "N0042",
+"ts": "22:37:09",
+"kind": "result",
+"refs": [
+"E0012"
+],
+"status": "",
+"text": "Path patching senders -> values of {7.3, 7.9, 8.6, 8.10} on S2-swap (local-full): 5.5 (+0.25), 3.0 (+0.11), 6.9 (+0.09), 5.9 (+0.05), 6.0 (+0.05), 4.3",
+"h": "4443127bf832",
+"chained": false
+},
+{
+"id": "N0043",
+"ts": "22:37:11",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0012: 5.5 (0.25) and 3.0 (0.11) are the top senders into the S2-readers' values; 6.9 (0.09) also contributes. Embedding contribution was not measured",
+"h": "b02e1895e233",
+"chained": false
+},
+{
+"id": "N0044",
+"ts": "22:37:13",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H10 (necessity of each stage): Mean-ablating (over ioi seed 0) the name movers {9.9, 9.6, 10.0, 10.10, 10.6} jointly reduces clean logit diff 3.77 by ",
+"h": "768fe9f04272",
+"chained": false
+},
+{
+"id": "N0045",
+"ts": "22:37:14",
+"kind": "experiment",
+"refs": [
+"E0013"
+],
+"status": "",
+"text": "ablation",
+"h": "ac60f8f8373d",
+"chained": false
+},
+{
+"id": "N0046",
+"ts": "22:37:21",
+"kind": "result",
+"refs": [
+"E0013"
+],
+"status": "",
+"text": "Joint mean ablation of {9.9, 9.6, 10.0, 10.10, 10.6} (ioi seed 0, local-full): logit diff 3.77 -> 3.12 (83% of clean kept). Despite these heads writin",
+"h": "eded39d85e5f",
+"chained": false
+},
+{
+"id": "N0047",
+"ts": "22:37:23",
+"kind": "hypothesis",
+"refs": [],
+"status": "rejected",
+"text": "E0013: joint mean ablation of the five positive direct-writers keeps 83% of the logit diff (drop 17%, below the 25% counter-threshold). The name mover",
+"h": "a5f754d45d2a",
+"chained": false
+},
+{
+"id": "N0048",
+"ts": "22:37:26",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H11 (compensation by late heads): When name movers are removed, the negative heads 10.7/11.10 (which attend IO from END and write against it, E0008/E0",
+"h": "1a921efa2345",
+"chained": false
+},
+{
+"id": "N0049",
+"ts": "22:37:30",
+"kind": "experiment",
+"refs": [
+"E0014"
+],
+"status": "",
+"text": "ablation",
+"h": "06ee67496da6",
+"chained": false
+},
+{
+"id": "N0050",
+"ts": "22:37:39",
+"kind": "result",
+"refs": [
+"E0014"
+],
+"status": "",
+"text": "Single-head mean ablation sweep (ioi seed 0, local-full; clean 3.77). Largest drops: 8.6 (-1.16), 8.10 (-1.05), 5.5 (-1.02), 7.9 (-0.73), 9.9 (-0.47),",
+"h": "cdda68fef066",
+"chained": false
+},
+{
+"id": "N0051",
+"ts": "22:37:42",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "E0014: 10.7 (+1.43) and 11.10 (+0.77) ablation raise LD (prediction held). Revised H11': the negative heads 10.7/11.10 partly cancel the name movers; ",
+"h": "995547e5f1b5",
+"chained": false
+},
+{
+"id": "N0052",
+"ts": "22:37:43",
+"kind": "experiment",
+"refs": [
+"E0015"
+],
+"status": "",
+"text": "ablation",
+"h": "c94d86ded7d0",
+"chained": false
+},
+{
+"id": "N0053",
+"ts": "22:37:51",
+"kind": "result",
+"refs": [
+"E0015"
+],
+"status": "",
+"text": "Joint mean ablation of movers {9.9, 9.6, 10.0, 10.10, 10.6} + negatives {10.7, 11.10} (ioi seed 0, local-full): LD 2.98 (79% of clean). Only slightly ",
+"h": "b79e867aa855",
+"chained": false
+},
+{
+"id": "N0054",
+"ts": "22:37:52",
+"kind": "hypothesis",
+"refs": [],
+"status": "rejected",
+"text": "E0015: removing negatives together with movers leaves LD at 2.98, far above the <2.0 prediction. Negative heads alone cannot explain the compensation;",
+"h": "fc535997c740",
+"chained": false
+},
+{
+"id": "N0055",
+"ts": "22:37:54",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H12 (late attention is where the answer is written, with backups): Jointly mean-ablating all attention in layers 9, 10, 11 destroys the behavior (LD <",
+"h": "e5fef60ededc",
+"chained": false
+},
+{
+"id": "N0056",
+"ts": "22:37:56",
+"kind": "experiment",
+"refs": [
+"E0016"
+],
+"status": "",
+"text": "ablation",
+"h": "b0605cd32c61",
+"chained": false
+},
+{
+"id": "N0057",
+"ts": "22:37:59",
+"kind": "result",
+"refs": [
+"E0016"
+],
+"status": "",
+"text": "Joint mean ablation of all attention in layers 9, 10, 11 (ioi seed 0, local-full): LD 3.77 -> 0.77 (20% of clean). Late attention is necessary as a wh",
+"h": "ad9a7fd719be",
+"chained": false
+},
+{
+"id": "N0058",
+"ts": "22:38:01",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0016: LD 0.77 (<1.0) with layer 9-11 attention ablated.",
+"h": "bc2ce81827ad",
+"chained": false
+},
+{
+"id": "N0059",
+"ts": "22:38:03",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H13 (identity of backups): With movers + negatives mean-ablated, DLA will show other layer 10-11 heads (currently ~0 in E0010, e.g. 10.1, 10.2, 11.2, ",
+"h": "02a463e20796",
+"chained": false
+},
+{
+"id": "N0060",
+"ts": "22:38:04",
+"kind": "experiment",
+"refs": [
+"E0017"
+],
+"status": "",
+"text": "direct_logit_attribution",
+"h": "601233534d87",
+"chained": false
+},
+{
+"id": "N0061",
+"ts": "22:38:13",
+"kind": "result",
+"refs": [
+"E0017"
+],
+"status": "",
+"text": "TOOL GAP: direct_logit_attribution ignored the 'ablate' parameter; E0017 is numerically identical to E0010. DLA under ablation is not available, so H1",
+"h": "888c7e715f9a",
+"chained": false
+},
+{
+"id": "N0062",
+"ts": "22:38:15",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H13' (where the backups sit): On top of the 7 ablated heads (E0015, LD 2.98), additionally ablating the remaining heads of layer 10 (10.1-10.5, 10.8, ",
+"h": "2e5ebea4a4c5",
+"chained": false
+},
+{
+"id": "N0063",
+"ts": "22:38:16",
+"kind": "experiment",
+"refs": [
+"E0018"
+],
+"status": "",
+"text": "ablation",
+"h": "ef3f4cf39009",
+"chained": false
+},
+{
+"id": "N0064",
+"ts": "22:38:20",
+"kind": "result",
+"refs": [
+"E0018"
+],
+"status": "",
+"text": "7 heads + rest of layer 10 mean-ablated (local-full): LD 2.40 (64%). Layer-10 remaining heads carry ~0.58 of backup; not enough to explain the drop to",
+"h": "302f7641a8b4",
+"chained": false
+},
+{
+"id": "N0065",
+"ts": "22:38:22",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "E0018: LD 2.40, between thresholds: layer 10 holds some backup (~0.6) but not most. Revised: backups are spread over layers 9-11. Next test adds the r",
+"h": "48ce62849996",
+"chained": false
+},
+{
+"id": "N0066",
+"ts": "22:38:24",
+"kind": "experiment",
+"refs": [
+"E0019"
+],
+"status": "",
+"text": "ablation",
+"h": "25afbbd4ef3d",
+"chained": false
+},
+{
+"id": "N0067",
+"ts": "22:38:32",
+"kind": "result",
+"refs": [
+"E0019",
+"E0016",
+"E0018"
+],
+"status": "",
+"text": "7 heads + all other layer 9 and 10 heads mean-ablated (local-full): LD 2.02 (53%). Adding the rest of layer 11 (= all of attn 9-11, E0016) gives 0.77.",
+"h": "b9e14e1866ed",
+"chained": false
+},
+{
+"id": "N0068",
+"ts": "22:38:34",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "E0019 (LD 2.02, not <1.5): backups are spread across layers 9, 10 and 11, with the largest share in layer 11 (~1.25 between E0019 and E0016). No singl",
+"h": "d0117dfbe043",
+"chained": false
+},
+{
+"id": "N0069",
+"ts": "22:38:36",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H14 (name movers follow duplication, not position): On prompts with the same layout but the first name repeated (\"When Mary and John ..., Mary gave a ",
+"h": "16377ed32a84",
+"chained": false
+},
+{
+"id": "N0070",
+"ts": "22:38:41",
+"kind": "experiment",
+"refs": [
+"E0020"
+],
+"status": "",
+"text": "S-first layout: S1=pos 2, IO=pos 4, S2=pos 10. Compare with E0008 (IO-first).",
+"h": "8876360de14e",
+"chained": false
+},
+{
+"id": "N0071",
+"ts": "22:38:46",
+"kind": "result",
+"refs": [
+"E0020",
+"E0008"
+],
+"status": "",
+"text": "Attention from END on S-first layout (S1=pos 2, IO=pos 4; local-full): 9.9 -> pos 4 (0.91), 9.6 -> pos 4 (0.78), 10.7 -> pos 4 (0.86), 11.10 -> pos 4 ",
+"h": "53fa46128d1e",
+"chained": false
+},
+{
+"id": "N0072",
+"ts": "22:38:48",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0020 vs E0008: name movers and negative heads attend to whichever name is not repeated (pos 4 here, pos 2 there).",
+"h": "8e69d4ea9b01",
+"chained": false
+},
+{
+"id": "N0073",
+"ts": "22:38:49",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H15 (MLPs are minor): Activation patching of mlp_out on the S2-swap data recovers little (<0.15 normalized) for every MLP except possibly mlp0 (which ",
+"h": "d7b22b8e35ab",
+"chained": false
+},
+{
+"id": "N0074",
+"ts": "22:39:00",
+"kind": "experiment",
+"refs": [
+"E0021"
+],
+"status": "",
+"text": "activation_patching",
+"h": "c2c0db7a19a1",
+"chained": false
+},
+{
+"id": "N0075",
+"ts": "22:39:13",
+"kind": "result",
+"refs": [
+"E0021"
+],
+"status": "",
+"text": "mlp_out patching on S2-swap (all positions, local-full): mlp0 recovers 0.89; mlp5 0.12; mlp9 0.07; all others |x| <= 0.05. Only S2 token differs betwe",
+"h": "5280fddad192",
+"chained": false
+},
+{
+"id": "N0076",
+"ts": "22:39:15",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0021: all MLPs except mlp0 (0.89) recover <=0.12; mlp0 is the exception anticipated (S2 token processing).",
+"h": "501de0b11f61",
+"chained": false
+},
+{
+"id": "N0077",
+"ts": "22:39:17",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H16 (upstream bottleneck): Because backups in layers 9-11 also have to know which name is repeated, jointly mean-ablating the upstream heads {3.0, 5.5",
+"h": "bb63cd60109d",
+"chained": false
+},
+{
+"id": "N0078",
+"ts": "22:39:18",
+"kind": "experiment",
+"refs": [
+"E0022"
+],
+"status": "",
+"text": "ablation",
+"h": "97df0e1616f0",
+"chained": false
+},
+{
+"id": "N0079",
+"ts": "22:39:22",
+"kind": "result",
+"refs": [
+"E0022"
+],
+"status": "",
+"text": "Joint mean ablation of the 7 upstream heads {3.0, 5.5, 6.9, 7.3, 7.9, 8.6, 8.10} (ioi seed 0, local-full): LD 3.77 -> 0.39 (10% of clean). Far larger ",
+"h": "806a3824d76e",
+"chained": false
+},
+{
+"id": "N0080",
+"ts": "22:39:23",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0022: LD 0.39 < 1.5.",
+"h": "b4f2a492da46",
+"chained": false
+},
+{
+"id": "N0081",
+"ts": "22:39:24",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H17 (each upstream stage is needed separately): (a) ablating only the S2 readers {7.3, 7.9, 8.6, 8.10} gives LD < 2.0; (b) ablating only the S2 duplic",
+"h": "9f3d5bb1cf9b",
+"chained": false
+},
+{
+"id": "N0082",
+"ts": "22:39:26",
+"kind": "experiment",
+"refs": [
+"E0023"
+],
+"status": "",
+"text": "ablation",
+"h": "f5144f1d6e93",
+"chained": false
+},
+{
+"id": "N0083",
+"ts": "22:39:26",
+"kind": "experiment",
+"refs": [
+"E0024"
+],
+"status": "",
+"text": "ablation",
+"h": "238f9599d1fe",
+"chained": false
+},
+{
+"id": "N0084",
+"ts": "22:39:33",
+"kind": "result",
+"refs": [
+"E0023",
+"E0024"
+],
+"status": "",
+"text": "Stage-wise ablations (ioi seed 0, local-full, mean): S2 readers {7.3, 7.9, 8.6, 8.10} alone -> LD 0.44 (12% of clean). S2 duplicate heads {3.0, 5.5, 6",
+"h": "c85758b3ba28",
+"chained": false
+},
+{
+"id": "N0085",
+"ts": "22:39:35",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0023: 0.44 < 2.0; E0024: 1.80 < 2.5. Both stages are needed.",
+"h": "685e60e8415f",
+"chained": false
+},
+{
+"id": "N0086",
+"ts": "22:39:37",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H18 (how 5.5 finds the repeat): 5.5 attends from S2 to S1+1 (E0009), induction-style. Its keys at S1+1 must carry 'the previous token was name X'. Hea",
+"h": "315535e9c7c0",
+"chained": false
+},
+{
+"id": "N0087",
+"ts": "22:39:43",
+"kind": "experiment",
+"refs": [
+"E0025"
+],
+"status": "",
+"text": "path_patching",
+"h": "36ecbf81d2bf",
+"chained": false
+},
+{
+"id": "N0088",
+"ts": "22:39:56",
+"kind": "result",
+"refs": [
+"E0025"
+],
+"status": "",
+"text": "Path patching senders -> keys of 5.5 on ABC data (local-full): every sender |effect| < 0.0002. INCONCLUSIVE, not a rejection: in the ABC corrupt run t",
+"h": "964f879f5f2a",
+"chained": false
+},
+{
+"id": "N0089",
+"ts": "22:39:57",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "E0025 inconclusive due to experiment design (query/key interaction under ABC corruption). H18 left untested; moved to open questions.",
+"h": "a89d601808a6",
+"chained": false
+},
+{
+"id": "N0090",
+"ts": "22:40:01",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H19 (full algorithm, for verification): Algorithm: (1) at S2, duplicate heads 3.0 (S2->S1) and 5.5 (S2->S1+1), with 6.9, write 'this name occurred bef",
+"h": "9dc5af613817",
+"chained": false
+},
+{
+"id": "N0091",
+"ts": "22:40:07",
+"kind": "verification",
+"refs": [
+"V0001"
+],
+"status": "",
+"text": "IO via duplicate detection -> S2 readers -> name movers: not-verified. At least one check failed; the explanation is partial or wrong. See the numbers",
+"h": "b431c522dfb4",
+"chained": false
+},
+{
+"id": "N0092",
+"ts": "22:40:18",
+"kind": "result",
+"refs": [
+"V0001"
+],
+"status": "",
+"text": "V0001 (held-out ioi seed 123, n=200, local-full, mean ablation with corrupt reference): agreement 0.94 (pass; the 12 disagreements are the model outpu",
+"h": "9ecc470f7226",
+"chained": false
+},
+{
+"id": "N0093",
+"ts": "22:40:20",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "V0001: agreement and necessity pass, sufficiency fails. Revised H19': the circuit needs supporting components omitted from the list. Diagnostic H20 ne",
+"h": "dfda7a044b72",
+"chained": false
+},
+{
+"id": "N0094",
+"ts": "22:40:22",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H20 (sufficiency gap is mostly MLPs): Keeping all 12 MLPs plus the 14 circuit heads and mean-ablating (corrupt reference) the other 130 heads gives LD",
+"h": "362eca3f0521",
+"chained": false
+},
+{
+"id": "N0095",
+"ts": "22:40:26",
+"kind": "experiment",
+"refs": [
+"E0026"
+],
+"status": "",
+"text": "ablation",
+"h": "834fcd1ce4a5",
+"chained": false
+},
+{
+"id": "N0096",
+"ts": "22:40:31",
+"kind": "result",
+"refs": [
+"E0026"
+],
+"status": "",
+"text": "Keeping all MLPs + 14 circuit heads, other 130 heads mean-ablated (corrupt reference, ioi seed 0, local-full): LD 1.20 (32% of clean). Keeping MLPs li",
+"h": "bffb5c8a67ab",
+"chained": false
+},
+{
+"id": "N0097",
+"ts": "22:40:32",
+"kind": "hypothesis",
+"refs": [],
+"status": "rejected",
+"text": "E0026: 32%, below the 50% prediction (though above the 25% counter line). MLPs alone do not close the gap; missing heads matter too.",
+"h": "f7f42bf06f1e",
+"chained": false
+},
+{
+"id": "N0098",
+"ts": "22:40:34",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H21 (missing supporting heads): Adding the heads that already have evidence but were left out (0.1, 1.11 [S2->S1 attention, E0009]; 5.8 [S2->S1+1, E00",
+"h": "077ed4de2600",
+"chained": false
+},
+{
+"id": "N0099",
+"ts": "22:40:39",
+"kind": "experiment",
+"refs": [
+"E0027"
+],
+"status": "",
+"text": "ablation",
+"h": "b3afc10abbe9",
+"chained": false
+},
+{
+"id": "N0100",
+"ts": "22:40:46",
+"kind": "result",
+"refs": [
+"E0027"
+],
+"status": "",
+"text": "Keeping all MLPs + 23 heads (14 core + 0.1, 1.11, 5.8, 4.11, 4.3, 5.9, 6.0, 9.7, 10.1), other 121 heads mean-ablated (corrupt reference, ioi seed 0, l",
+"h": "2070c20d4483",
+"chained": false
+},
+{
+"id": "N0101",
+"ts": "22:40:47",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0027: 105% of clean (> 50%).",
+"h": "cec5edf1f1e4",
+"chained": false
+},
+{
+"id": "N0102",
+"ts": "22:40:48",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H22 (which MLPs are needed for sufficiency): With the 23 heads kept, also mean-ablating mlp1-mlp11 (keeping only mlp0) keeps LD > 50% of clean, i.e. o",
+"h": "8e1a538a3eea",
+"chained": false
+},
+{
+"id": "N0103",
+"ts": "22:40:54",
+"kind": "experiment",
+"refs": [
+"E0028"
+],
+"status": "",
+"text": "ablation",
+"h": "9ecee18419d8",
+"chained": false
+},
+{
+"id": "N0104",
+"ts": "22:41:00",
+"kind": "result",
+"refs": [
+"E0028"
+],
+"status": "",
+"text": "Same as E0027 but also mean-ablating mlp1-mlp11 (only mlp0 kept): LD 0.16 (4% of clean). Later MLPs are required for the circuit to work, even though ",
+"h": "d4fa7c9ffb2e",
+"chained": false
+},
+{
+"id": "N0105",
+"ts": "22:41:02",
+"kind": "hypothesis",
+"refs": [],
+"status": "rejected",
+"text": "E0028: 4% < 30%. MLPs 1-11 are needed (as infrastructure) for sufficiency.",
+"h": "e72347531f72",
+"chained": false
+},
+{
+"id": "N0106",
+"ts": "22:41:03",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H23 (early MLPs suffice): With the 23 heads and mlp0-mlp6 kept, mean-ablating mlp7-mlp11 plus the other 121 heads still keeps LD > 50%. Counter: < 30%",
+"h": "a110ab603937",
+"chained": false
+},
+{
+"id": "N0107",
+"ts": "22:41:08",
+"kind": "experiment",
+"refs": [
+"E0029"
+],
+"status": "",
+"text": "ablation",
+"h": "1b4ade514617",
+"chained": false
+},
+{
+"id": "N0108",
+"ts": "22:41:12",
+"kind": "result",
+"refs": [
+"E0029"
+],
+"status": "",
+"text": "23 heads + mlp0-mlp6 kept, mlp7-mlp11 and other 121 heads mean-ablated (corrupt reference, ioi seed 0, local-full): LD 3.81 (101%). Late MLPs 7-11 are",
+"h": "a76847177c9a",
+"chained": false
+},
+{
+"id": "N0109",
+"ts": "22:41:13",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0029: 101% of clean with mlp7-11 ablated.",
+"h": "8f054c594d3b",
+"chained": false
+},
+{
+"id": "N0110",
+"ts": "22:41:16",
+"kind": "decision",
+"refs": [],
+"status": "",
+"text": "Re-verify on a fresh held-out seed (777; seeds 0 and 123 already used) with the expanded circuit: 23 heads (core 14 + supporting 0.1, 1.11, 5.8, 4.11,",
+"h": "62ffa126fe2b",
+"chained": false
+},
+{
+"id": "N0111",
+"ts": "22:41:22",
+"kind": "verification",
+"refs": [
+"V0002"
+],
+"status": "",
+"text": "IO circuit v2: duplicate heads -> S2 readers -> name movers (+ supporting heads, mlp0-6): verified. Passed at full precision.",
+"h": "d848fbaf8fc7",
+"chained": false
+},
+{
+"id": "N0112",
+"ts": "22:41:28",
+"kind": "result",
+"refs": [
+"V0002"
+],
+"status": "",
+"text": "V0002 VERIFIED (held-out ioi seed 777, n=200, local-full): agreement with model 0.935 (all 13 disagreements are the model choosing a non-name token li",
+"h": "d4e485f597f5",
+"chained": false
+},
+{
+"id": "N0113",
+"ts": "22:41:30",
+"kind": "hypothesis",
+"refs": [],
+"status": "open",
+"text": "H24 (task-specific necessity, excluding MLP infrastructure): Mean-ablating (corrupt reference) only the 23 circuit heads while leaving every MLP intac",
+"h": "e06782cccb0a",
+"chained": false
+},
+{
+"id": "N0114",
+"ts": "22:41:32",
+"kind": "experiment",
+"refs": [
+"E0030"
+],
+"status": "",
+"text": "ablation",
+"h": "9b7e823304d0",
+"chained": false
+},
+{
+"id": "N0115",
+"ts": "22:41:35",
+"kind": "result",
+"refs": [
+"E0030"
+],
+"status": "",
+"text": "Mean-ablating (corrupt reference) only the 23 circuit heads, all MLPs intact (ioi seed 0, local-full): LD 3.77 -> -1.48 (-39%; the model now prefers t",
+"h": "a07e4c1e0694",
+"chained": false
+},
+{
+"id": "N0116",
+"ts": "22:41:36",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "E0030: -39% of clean, well below 20%.",
+"h": "5559c50258a0",
+"chained": false
+},
+{
+"id": "N0117",
+"ts": "22:41:37",
+"kind": "hypothesis",
+"refs": [],
+"status": "supported",
+"text": "V0002 (seed 777) passes all checks with the expanded circuit (23 heads + mlp0-6); E0030 confirms necessity of the heads alone. Caveat: circuit-alone t",
+"h": "c17316c69245",
+"chained": false
+},
+{
+"id": "N0118",
+"ts": "22:41:39",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "Final: the answer is written by layer 9-11 heads at END (E0010, E0016) as H2 said, but the decisive computation starts earlier: S2-position duplicate ",
+"h": "d80cd11db7f7",
+"chained": false
+},
+{
+"id": "N0119",
+"ts": "22:41:41",
+"kind": "hypothesis",
+"refs": [],
+"status": "revised",
+"text": "Untestable as posed (DLA ignores ablation, E0017). Joint ablations located backup capacity across layers 9-11 (E0018, E0019, E0016) without naming ind",
+"h": "c061a95694dc",
+"chained": false
+},
+{
+"id": "N0120",
+"ts": "22:42:44",
+"kind": "report",
+"refs": [
+"E0002",
+"E0005",
+"E0008",
+"E0009",
+"E0010",
+"E0011",
+"E0012",
+"E0013",
+"E0014",
+"E0015",
+"E0016",
+"E0018",
+"E0019",
+"E0020",
+"E0021",
+"E0022",
+"E0023",
+"E0024",
+"E0026",
+"E0027",
+"E0028",
+"E0029",
+"E0030",
+"V0001",
+"V0002"
+],
+"status": "",
+"text": "Report written: benchmarks\\ioi\\report\\report.md",
+"h": "a29e4e4c5e0e",
+"chained": false
+}
+]
+}

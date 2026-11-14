@@ -1,10 +1,10 @@
-# Design system
+# Figure sources
 
-Sources for the READMEs across these repositories.
+The animated figures at the top of each repository README are built in code with Remotion and React Three Fiber.
 
-- `build.mjs` generates the animated SVG hero, section rules and data-flow diagram for one project from `projects/<name>.json` and `motifs/<motif>.mjs`.
-- `cards.mjs` generates the index cards on the profile page.
-- `motion/` holds the 3D scenes (Remotion with React Three Fiber). One file per repository in `motion/src/scenes/`, rendered to GIF with `motion/scene.sh`.
-- `GUIDE.md` and `SCENES.md` are the rules each README and scene follows.
+- `kit4.tsx`: the shared chart kit (palette, stage, axes, marks, captions).
+- `scenes/`: one scene file per figure.
+- `data/`: values extracted from each repository for its figure.
+- `scene4.sh`: renders a scene to stills or to an animated WebP.
 
-Paths inside the scripts point at the machine they were written on and need adjusting before reuse.
+Paths inside the scripts are placeholders and need adjusting before reuse.
